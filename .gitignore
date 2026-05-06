@@ -14,10 +14,22 @@ frontend/dist/
 frontend/build/
 frontend/.vite/
 
+DEPLOYMENT_CONFIG_SUMMARY.md
+VERCEL_DEPLOYMENT.md
+CHATBOT_SETUP.md
+
 # Backend build / logs
 backend/node_modules/
 backend/dist/
 backend/build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/.env.local
+frontend/.env.local
 backend/npm-debug.log*
 backend/yarn-debug.log*
 backend/yarn-error.log*
