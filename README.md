@@ -1,5 +1,7 @@
 # 🌟 MindCareAI — Digital Mental Health & Psychological Support System
 
+[Here](https://mindcareai-nkg.vercel.app/) you go! 
+
 MindCareAI is a comprehensive full-stack platform designed to provide accessible mental health support for students in higher education. It connects students with counselors, offers AI-assisted support, and streamlines appointment management through role-based dashboards.
 
 ## 🚀 Key Features
