@@ -16,8 +16,15 @@ export default function Navbar() {
         { href: '/community', label: 'Community' },
         { href: '/counseling', label: 'Counseling' },
         { href: '/emergency', label: 'Emergency' },
-        { href: '/admin', label: 'Admin' },
     ]
+
+    if (user?.role === 'admin') {
+        links.push({ href: '/admin', label: 'Admin' })
+    } else if (user?.role === 'counselor') {
+        links.push({ href: '/counselor-dashboard', label: 'Dashboard' })
+    } else if (user?.role === 'student') {
+        links.push({ href: '/student-dashboard', label: 'Dashboard' })
+    }
 
     return (
         <nav className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b border-border shadow-lg">

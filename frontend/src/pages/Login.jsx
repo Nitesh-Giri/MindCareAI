@@ -34,13 +34,13 @@ export default function Login() {
 
                 // Redirect based on role
                 if (data.role === 'student') {
-                    window.location.href = '/student-dashboard';
+                    navigate('/student-dashboard');
                 } else if (data.role === 'counselor') {
-                    window.location.href = '/counselor-dashboard';
+                    navigate('/counselor-dashboard');
                 } else if (data.role === 'admin') {
-                    window.location.href = '/admin';
+                    navigate('/admin');
                 } else {
-                    window.location.href = '/';
+                    navigate('/');
                 }
             }
         } catch (error) {

@@ -12,10 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({
     origin: [
-        'https://mindcareai-nkg.vercel.app/',
-        'https://mind-care-ai-mauve.vercel.app/',
+        'https://mindcareai-nkg.vercel.app',
+        'https://mind-care-ai-mauve.vercel.app',
         'http://localhost:8008',
-        'http://localhost:5173'
+        'http://localhost:5173',
+        'http://127.0.0.1:5173'
     ],
     credentials: true
 }));

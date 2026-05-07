@@ -26,14 +26,14 @@ export default function Register() {
             if (data.success) {
                 if (role === 'counselor') {
                     alert('Registration successful! Your account is pending approval. You can login now, but features will be limited until an admin approves your credentials.');
-                    window.location.href = '/login';
+                    navigate('/login');
                 } else {
                     localStorage.setItem('user', JSON.stringify({
                         ...data,
                         token: data.token
                     }));
                     alert(`Registration successful! Welcome ${data.name}`);
-                    window.location.href = '/';
+                    navigate('/');
                 }
             }
         } catch (error) {
