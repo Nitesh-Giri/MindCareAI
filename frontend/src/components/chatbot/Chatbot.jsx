@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Send, Loader, Bot, AlertCircle } from "lucide-react"
 import axios from "axios"
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8008"
+const API_URL = import.meta.env.VITE_API_URL || "https://mind-care-ai-mauve.vercel.app"
 
 export default function ChatbotComponent() {
     const [messages, setMessages] = useState([
