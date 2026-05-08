@@ -3,29 +3,93 @@ import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Search, Play, BookOpen, Sparkles } from "lucide-react"
+import { Search, Play, BookOpen, Sparkles, X } from "lucide-react"
 
 export default function ResourcesComponent() {
     const [searchTerm, setSearchTerm] = useState("")
+    const [selectedVideo, setSelectedVideo] = useState(null)
+    const [selectedVideoTitle, setSelectedVideoTitle] = useState("")
+
+    const openVideo = (video, title) => {
+        setSelectedVideo(video)
+        setSelectedVideoTitle(title)
+    }
+
+    const closeVideo = () => {
+        setSelectedVideo(null)
+        setSelectedVideoTitle("")
+    }
 
     const resources = {
         meditation: [
-            { title: "Guided Breathing", duration: "5 min", description: "Calm your mind with deep breathing" },
-            { title: "Body Scan Meditation", duration: "10 min", description: "Release tension throughout your body" },
-            { title: "Loving Kindness", duration: "8 min", description: "Cultivate compassion and self-love" },
-            { title: "Sleep Meditation", duration: "15 min", description: "Prepare for restful sleep" },
+            {
+                title: "Guided Breathing",
+                duration: "10 min",
+                description: "Calm your mind with deep breathing",
+                video: "https://www.youtube.com/embed/O-6f5wQXSu8"
+            },
+            {
+                title: "Body Scan Meditation",
+                duration: "10 min",
+                description: "Release tension throughout your body",
+                video: "https://www.youtube.com/embed/wWRwDEkoVwU"
+            },
+            {
+                title: "Loving Kindness",
+                duration: "8 min",
+                description: "Cultivate compassion and self-love",
+                video: "https://www.youtube.com/embed/-Z_DgCj-kH4"
+            },
+            {
+                title: "Sleep Meditation",
+                duration: "15 min",
+                description: "Prepare for restful sleep",
+                video: "https://www.youtube.com/embed/SEfs5TJZ6Nk"
+            },
         ],
         exercises: [
-            { title: "5-4-3-2-1 Grounding", description: "Sensory grounding technique for anxiety" },
-            { title: "Box Breathing", description: "Regulate your nervous system" },
-            { title: "Progressive Muscle Relaxation", description: "Release physical tension" },
-            { title: "Journaling Prompts", description: "Process emotions through writing" },
+            {
+                title: "5-4-3-2-1 Grounding",
+                description: "Sensory grounding technique for anxiety",
+                video: "https://www.youtube.com/embed/6TlmRJ_z4Ws"
+            },
+            {
+                title: "Box Breathing",
+                description: "Regulate your nervous system",
+                video: "https://www.youtube.com/embed/odADwWzHR24"
+            },
+            {
+                title: "Progressive Muscle Relaxation",
+                description: "Release physical tension",
+                video: "https://www.youtube.com/embed/1nZEdqcGVzo"
+            },
+            {
+                title: "Journaling Prompts",
+                description: "Process emotions through writing",
+                video: "https://www.youtube.com/embed/8AJX3yXJ1Aw"
+            },
         ],
         strategies: [
-            { title: "Stress Management", description: "Practical techniques for daily stress" },
-            { title: "Sleep Hygiene", description: "Tips for better sleep quality" },
-            { title: "Social Connection", description: "Build meaningful relationships" },
-            { title: "Self-Compassion", description: "Treat yourself with kindness" },
+            {
+                title: "Stress Management",
+                description: "Practical techniques for daily stress",
+                video: "https://www.youtube.com/embed/hnpQrMqDoqE"
+            },
+            {
+                title: "Sleep Hygiene",
+                description: "Tips for better sleep quality",
+                video: "https://www.youtube.com/embed/1Xn0n3eNVLM"
+            },
+            {
+                title: "Social Connection",
+                description: "Build meaningful relationships",
+                video: "https://www.youtube.com/embed/5oiJ7QET-2g"
+            },
+            {
+                title: "Self-Compassion",
+                description: "Treat yourself with kindness",
+                video: "https://www.youtube.com/embed/1XbQ2k1961Q"
+            },
         ],
     }
 
@@ -69,7 +133,11 @@ export default function ResourcesComponent() {
                                             {item.duration}
                                         </div>
                                     </div>
-                                    <Button size="icon" className="rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+                                    <Button
+                                        size="icon"
+                                        className="rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                                        onClick={() => openVideo(item.video, item.title)}
+                                    >
                                         <Play className="w-4 h-4 ml-0.5" />
                                     </Button>
                                 </div>
@@ -84,8 +152,13 @@ export default function ResourcesComponent() {
                             <Card key={i} className="p-6 hover:shadow-lg transition-all duration-300 border-border hover:border-primary/50 bg-card/50 backdrop-blur group">
                                 <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
                                 <p className="text-sm text-muted-foreground mb-4">{item.description}</p>
-                                <Button size="sm" variant="outline" className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all">
-                                    Start Exercise
+                                <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
+                                    onClick={() => openVideo(item.video, item.title)}
+                                >
+                                    Watch Exercise
                                 </Button>
                             </Card>
                         ))}
@@ -103,8 +176,13 @@ export default function ResourcesComponent() {
                                     <div>
                                         <h3 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
                                         <p className="text-sm text-muted-foreground mb-3">{item.description}</p>
-                                        <Button size="sm" variant="link" className="p-0 h-auto text-primary">
-                                            Read more →
+                                        <Button
+                                            size="sm"
+                                            variant="outline"
+                                            className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
+                                            onClick={() => openVideo(item.video, item.title)}
+                                        >
+                                            Watch Guide
                                         </Button>
                                     </div>
                                 </div>
@@ -113,6 +191,34 @@ export default function ResourcesComponent() {
                     </div>
                 </TabsContent>
             </Tabs>
+
+            {selectedVideo && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+                    <div className="relative w-full max-w-4xl overflow-hidden rounded-3xl bg-card shadow-2xl">
+                        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+                            <div>
+                                <p className="text-sm uppercase tracking-[0.24em] text-muted-foreground">Watch video</p>
+                                <h3 className="text-lg font-semibold text-foreground">{selectedVideoTitle}</h3>
+                            </div>
+                            <button
+                                onClick={closeVideo}
+                                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground hover:bg-destructive/10 transition"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+                        <div className="bg-black">
+                            <iframe
+                                title={selectedVideoTitle}
+                                src={`${selectedVideo}?autoplay=1`}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="h-[60vh] w-full"
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Card } from '@/components/ui/card'
 import { MessageCircle, Brain, Users, FileText, Phone, BarChart3 } from 'lucide-react'
 
@@ -7,31 +8,37 @@ export default function Features() {
             icon: MessageCircle,
             title: "AI Chatbot",
             description: "Talk to our AI about your feelings and get instant support and suggestions",
+            href: "/chatbot"
         },
         {
             icon: Brain,
             title: "Self-Assessment",
             description: "Understand your mental health with our guided wellness questionnaire",
+            href: "/assessment"
         },
         {
             icon: FileText,
             title: "Resources",
             description: "Access meditation guides, breathing exercises, and coping strategies",
+            href: "/resources"
         },
         {
             icon: Users,
             title: "Community Wall",
             description: "Connect with peers anonymously and share your journey",
+            href: "/community"
         },
         {
             icon: Phone,
             title: "Counseling",
             description: "Request sessions with professional mental health counselors",
+            href: "/counseling"
         },
         {
             icon: BarChart3,
             title: "Emergency Help",
             description: "Quick access to crisis hotlines and emergency resources",
+            href: "/emergency"
         },
     ]
 
@@ -51,13 +58,15 @@ export default function Features() {
                     {features.map((feature, index) => {
                         const Icon = feature.icon
                         return (
-                            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50 group bg-card/50 backdrop-blur-sm">
-                                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                                    <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                                </div>
-                                <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
-                                <p className="text-muted-foreground">{feature.description}</p>
-                            </Card>
+                            <Link key={index} to={feature.href} className="group">
+                                <Card className="p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50 bg-card/50 backdrop-blur-sm cursor-pointer">
+                                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                                        <Icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+                                    <p className="text-muted-foreground">{feature.description}</p>
+                                </Card>
+                            </Link>
                         )
                     })}
                 </div>
