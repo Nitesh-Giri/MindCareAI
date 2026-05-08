@@ -4,37 +4,37 @@ import { Star } from 'lucide-react'
 export default function Testimonials() {
     const testimonials = [
         {
-            name: "Retik",
+            name: "Shyed",
             role: "Computer Science Student",
             content: "MindCareAI's personalized resources have been a game-changer for my mental well-being. It's exactly what students need.",
             rating: 5,
         },
         {
-            name: "Harmeet",
+            name: "Runjhun",
             role: "Medical Student",
             content: "I've never felt more understood. The community here is so supportive and non-judgmental.",
             rating: 5,
         },
         {
-            name: "Jamshed",
+            name: "Nitesh",
             role: "Engineering Graduate",
             content: "The AI chatbot is surprisingly effective. It really helps me process my thoughts during stressful times.",
             rating: 5,
         },
         {
-            name: "Utkarsh",
+            name: "Abhilasha",
             role: "Design Student",
             content: "Booking a counseling session was so easy. I'm glad I took that step towards better mental health.",
             rating: 5,
         },
         {
-            name: "Akash",
+            name: "Vishwajeet",
             role: "Business Student",
             content: "The daily check-ins help me stay grounded. Highly recommended app for anyone feeling overwhelmed.",
             rating: 5,
         },
         {
-            name: "Gautam Gambhir",
+            name: "Virat Kohli",
             role: "Sports Psychology Student",
             content: "The mental toughness resources here are exceptional. They really help in maintaining focus and resilience under pressure.",
             rating: 5,

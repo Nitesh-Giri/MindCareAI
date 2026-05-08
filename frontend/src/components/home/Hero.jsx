@@ -49,7 +49,7 @@ export default function Hero() {
                         <p className="text-sm text-muted-foreground">Anonymous & Private</p>
                     </div>
                     <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border border-border hover:border-primary/50 transition-colors">
-                        <div className="text-3xl font-bold text-primary mb-2">50K+</div>
+                        <div className="text-3xl font-bold text-primary mb-2">20+</div>
                         <p className="text-sm text-muted-foreground">Students Supported</p>
                     </div>
                 </div>
